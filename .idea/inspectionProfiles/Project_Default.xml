@@ -1,0 +1,30 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="237" name="JavaScript" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="9">
+            <item index="0" class="java.lang.String" itemvalue="action" />
+            <item index="1" class="java.lang.String" itemvalue="labelposition" />
+            <item index="2" class="java.lang.String" itemvalue="formid" />
+            <item index="3" class="java.lang.String" itemvalue="leftcol" />
+            <item index="4" class="java.lang.String" itemvalue="rightcol" />
+            <item index="5" class="java.lang.String" itemvalue="ajaxify" />
+            <item index="6" class="java.lang.String" itemvalue="width" />
+            <item index="7" class="java.lang.String" itemvalue="height" />
+            <item index="8" class="java.lang.String" itemvalue="for" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PhpPossiblePolymorphicInvocationInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PhpUndefinedCallbackInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+  </profile>
+</component>
