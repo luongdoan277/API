@@ -5,27 +5,21 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
 use App\Model\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return JsonResponse
-     */
-    public function index()
-    {
-        $product = Product::all()->random(5)->toJson();
-        return response()->json($product);
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -47,7 +41,7 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -59,7 +53,7 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -70,22 +64,34 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return string
      */
     public function update(Request $request, $id)
     {
-
+        $product = [
+            'name'=>$request->json()->get('name'),
+            'type'=>$request->json()->get('type'),
+            'image'=>$request->json()->get('image'),
+            'description'=>$request->json()->get('description'),
+            'size'=>$request->json()->get('size'),
+            'color'=>$request->json()->get('color'),
+            'price'=>$request->json()->get('price'),
+        ];
+        if (Product::findOrFail($id)->update($product)){
+            return "Update successfully";
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Application|RedirectResponse|Redirector
      */
     public function destroy($id)
     {
-        //
+        Product::findOrFail($id)->delete();
+        return redirect();
     }
 }

@@ -8,8 +8,6 @@ class Product extends Eloquent
 {
     protected $connection = 'mongodb';
     protected $collection = 'products';
-
-
     /**
      * The attributes that are mass assignable.
      *

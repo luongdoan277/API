@@ -22,5 +22,5 @@ Route::post('login', 'API\LoginController@login');
 Route::post('register', 'API\LoginController@register');
 Route::get('view_product', 'API\ProductController@index');
 Route::post('add_product', 'API\ProductController@store');
-
-
+Route::put('update_product/{id}','API\ProductController@update');
+Route::delete('delete_product','API\ProductController@destroy');
