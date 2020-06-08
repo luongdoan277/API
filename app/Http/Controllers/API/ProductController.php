@@ -5,16 +5,18 @@ namespace App\Http\Controllers\API;
 use App\Model\Cart;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
-use App\Model\User;
 use App\Model\Order;
 use Illuminate\Contracts\Foundation\Application;
-use Session;
+use MongoDB\Driver\Session;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
+use Stripe\Stripe;
+use Stripe\Charge;
+use Tymon\JWTAuth\JWTAuth;
 
 class ProductController extends Controller
 {
@@ -124,7 +126,7 @@ class ProductController extends Controller
             $order->name = $request->input('name');
             $order->payment_id = $charge->id;
 
-            Auth::user()->orders()->save($order);
+            JWTAuth::user()->orders()->save($order);
 
         } catch(\Exception $e) {
             return redirect()->route('checkout')->with('error', $e->getMessage());

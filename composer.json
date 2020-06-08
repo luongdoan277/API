@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ext-mongodb": "*",
         "cviebrock/eloquent-sluggable": "6.0.*",
         "designmynight/laravel-mongodb-passport": "^1.2",
         "fideloper/proxy": "^4.0",
@@ -20,6 +21,7 @@
         "maatwebsite/excel": "^3.1",
         "mongodb/mongodb": "^1.6",
         "moontoast/math": "^1.2",
+        "stripe/stripe-php": "^7.36",
         "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {

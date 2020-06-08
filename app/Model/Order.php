@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class Oder extends Model
+class Order extends Model
 {
     protected $collection = 'order';
     protected $connection = 'mongodb';

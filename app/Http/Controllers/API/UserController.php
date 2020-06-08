@@ -12,6 +12,9 @@ use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
+    public function getLogin(){
+        return view('js/components/pages/Login.js');
+    }
     public function getProfile(User $id)
     {
         $profile = User::findOrFail($id);
