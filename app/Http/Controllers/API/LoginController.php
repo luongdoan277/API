@@ -19,10 +19,6 @@ use Tymon\JWTAuth\Manager as JWT;
 
 class LoginController extends Controller
 {
-    public function index()
-    {
-        return User::all();
-    }
     public function register(Request $request){
         $validater = Validator::make($request->json()->all(), [
             'firstname' => 'required|string|max:255',
